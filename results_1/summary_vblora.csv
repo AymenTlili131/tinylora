@@ -1,0 +1,2 @@
+task,method,model,trainable_params,peak_vram_gb,train_seconds,tokens_per_sec_est,steps,adapter_target_modules,adapter_vector_length,math_exact_match
+math,vblora,Qwen/Qwen2.5-0.5B-Instruct,1114112,1.4792108535766602,555.0861284732819,934.3976968521298,300,"['q_proj', 'k_proj', 'v_proj', 'o_proj']",128,0.01

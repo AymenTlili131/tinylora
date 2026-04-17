@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MODEL="${MODEL:-Qwen/Qwen2.5-0.5B-Instruct}"
+OUTDIR="${OUTDIR:-results}"
+TASKS="${TASKS:-math,cls,instruct}"
+
+# Longer-ish demo defaults (tweak as you like)
+BS="${BS:-1}"
+GA="${GA:-8}"
+LR="${LR:-2e-4}"
+EPOCHS="${EPOCHS:-1.0}"        # you asked "more training time (epochs)"
+MAX_STEPS="${MAX_STEPS:-600}"  # also increase steps; set -1 to rely purely on epochs
+TRAIN_LIMIT="${TRAIN_LIMIT:-6000}"
+EVAL_N="${EVAL_N:-300}"
+EVAL_LIMIT="${EVAL_LIMIT:-1200}"
+MAX_LEN="${MAX_LEN:-768}"
+
+# Useful to reduce fragmentation / OOM spikes
+export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
+
+stamp() { date +"%Y%m%d_%H%M%S"; }
+
+run_one() {
+  local method="$1"
+  local suite="$2"     # "qlora" or "fp16"
+  local extra=("${@:3}")
+
+  echo "============================================================"
+  echo "Running: method=${method} suite=${suite} model=${MODEL}"
+  echo "============================================================"
+
+  python run.py \
+    --model "${MODEL}" \
+    --method "${method}" \
+    --tasks "${TASKS}" \
+    --outdir "${OUTDIR}" \
+    --bs "${BS}" \
+    --grad_accum "${GA}" \
+    --lr "${LR}" \
+    --epochs "${EPOCHS}" \
+    --max_steps "${MAX_STEPS}" \
+    --max_length "${MAX_LEN}" \
+    --train_limit "${TRAIN_LIMIT}" \
+    --eval_limit "${EVAL_LIMIT}" \
+    --eval_n "${EVAL_N}" \
+    "${extra[@]}"
+
+  # run.py writes results/summary_<method>.csv; rename it to avoid overwriting
+  local src="${OUTDIR}/summary_${method}.csv"
+  local dst="${OUTDIR}/summary_${method}_${suite}_steps${MAX_STEPS}_ep${EPOCHS}_tl${TRAIN_LIMIT}_en${EVAL_N}_$(stamp).csv"
+
+  if [[ -f "${src}" ]]; then
+    mv "${src}" "${dst}"
+    echo "Saved CSV => ${dst}"
+  else
+    echo "WARNING: expected ${src} not found"
+  fi
+}
+
+# -------------------------
+# Suite A: "best supported"
+# -------------------------
+# LoRA variants with 4-bit (QLoRA-like)
+run_one "lora"    "qlora4" --load_in_4bit
+run_one "adalora" "qlora4" --load_in_4bit
+run_one "vera"    "qlora4" --load_in_4bit
+run_one "vblora"  "qlora4" --load_in_4bit
+
+# TinyLoRA typically needs fp16/bf16 path (no 4-bit)
+# If your GPU supports bf16 well and it's stable, enable --bf16. Otherwise remove it.
+run_one "tinylora" "fp16"  # or add: --bf16
+
+# -------------------------
+# Suite B: apples-to-apples
+# -------------------------
+# All fp16 (no quantization) - isolates method differences
+run_one "lora"    "fp16"
+run_one "adalora" "fp16"
+run_one "vera"    "fp16"
+run_one "vblora"  "fp16"
+run_one "tinylora" "fp16"
+
+echo "DONE. CSVs are in ${OUTDIR}/summary_*_*.csv"

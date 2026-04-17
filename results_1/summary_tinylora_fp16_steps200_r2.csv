@@ -1,0 +1,4 @@
+task,method,model,trainable_params,peak_vram_gb,train_seconds,tokens_per_sec_est,steps,adapter_tinylora_r,adapter_replaced_layers,adapter_trainable_per_layer,adapter_target_modules,math_exact_match,cls_accuracy,rougeL
+math,tinylora,Qwen/Qwen2.5-0.5B-Instruct,96,2.479496955871582,106.01714205741882,3261.5555681809014,200,2,96,scale,"['q_proj', 'k_proj', 'v_proj', 'o_proj']",0.025,,
+cls,tinylora,Qwen/Qwen2.5-0.5B-Instruct,96,1.7915582656860352,106.48381161689758,1303.4018776425512,200,2,96,scale,"['q_proj', 'k_proj', 'v_proj', 'o_proj']",,0.305,
+instruct,tinylora,Qwen/Qwen2.5-0.5B-Instruct,96,3.014091968536377,106.30096483230591,2609.835201756202,200,2,96,scale,"['q_proj', 'k_proj', 'v_proj', 'o_proj']",,,0.15466188715080548

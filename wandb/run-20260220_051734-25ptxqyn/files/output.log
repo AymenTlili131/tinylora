@@ -1,0 +1,29 @@
+config.json: 100%|█████████████████████████████| 659/659 [00:00<00:00, 2.81MB/s]
+tokenizer_config.json: 7.30kB [00:00, 13.6MB/s]
+vocab.json: 2.78MB [00:01, 1.42MB/s]
+merges.txt: 1.67MB [00:00, 5.33MB/s]
+tokenizer.json: 7.03MB [00:00, 12.1MB/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+model.safetensors: 100%|█████████████████████| 988M/988M [03:08<00:00, 5.24MB/s]
+Traceback (most recent call last):
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 214, in <module>
+    main()
+    ~~~~^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 202, in main
+    run_one(task, args, results_rows)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 71, in run_one
+    model, tok = load_model_and_tokenizer(args.model, args.load_in_4bit, args.load_in_8bit)
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 67, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_name, **kwargs)
+  File "/home/aymen/anaconda3/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 374, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/aymen/anaconda3/lib/python3.13/site-packages/transformers/modeling_utils.py", line 4030, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+TypeError: Qwen2ForCausalLM.__init__() got an unexpected keyword argument 'load_in_4bit'

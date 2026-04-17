@@ -1,0 +1,58 @@
+{
+  "os":  "Linux-6.8.0-94-generic-x86_64-with-glibc2.35",
+  "python":  "CPython 3.13.5",
+  "startedAt":  "2026-02-20T04:25:45.025152Z",
+  "args":  [
+    "--model",
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "--method",
+    "lora",
+    "--tasks",
+    "math,cls,instruct",
+    "--load_in_4bit",
+    "--bs",
+    "1",
+    "--grad_accum",
+    "8",
+    "--max_steps",
+    "200",
+    "--train_limit",
+    "2000",
+    "--eval_n",
+    "200",
+    "--wandb",
+    "--run_name",
+    "lora_qwen05b"
+  ],
+  "program":  "/home/aymen/Documents/GitHub/tinylora-demo/run.py",
+  "codePath":  "run.py",
+  "codePathLocal":  "run.py",
+  "email":  "aymentlili131@gmail.com",
+  "root":  "/home/aymen/Documents/GitHub/tinylora-demo",
+  "host":  "aymen-MS-7C95",
+  "executable":  "/home/aymen/anaconda3/bin/python",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA GeForce RTX 5060 Ti",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "774207291392",
+      "used":  "459724263424"
+    }
+  },
+  "memory":  {
+    "total":  "33569062912"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 5060 Ti",
+      "memoryTotal":  "17103323136",
+      "cudaCores":  4608,
+      "architecture":  "Blackwell",
+      "uuid":  "GPU-f1436c29-6a14-d84e-9eae-9bdecf707c8c"
+    }
+  ],
+  "cudaVersion":  "13.0",
+  "writerId":  "fes0xhcznotovzv4kg939zqggbb73bn4"
+}

@@ -1,0 +1,2 @@
+task,method,model,trainable_params,peak_vram_gb,train_seconds,tokens_per_sec_est,steps,adapter_target_modules,adapter_total_step,math_exact_match
+math,adalora,Qwen/Qwen2.5-0.5B-Instruct,1623168,2.1129159927368164,379.90196323394775,1365.2764402288615,300,"['q_proj', 'k_proj', 'v_proj', 'o_proj']",300,0.005

@@ -1,0 +1,486 @@
+_name_or_path:
+    value: Qwen/Qwen2.5-0.5B-Instruct
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            rghyh5xvvm4uavadd5fphnaod7ri8ydk:
+                args:
+                    - --model
+                    - Qwen/Qwen2.5-0.5B-Instruct
+                    - --method
+                    - lora
+                    - --tasks
+                    - math,cls,instruct
+                    - --load_in_4bit
+                    - --bs
+                    - "1"
+                    - --grad_accum
+                    - "8"
+                    - --max_steps
+                    - "200"
+                    - --train_limit
+                    - "2000"
+                    - --eval_n
+                    - "200"
+                    - --wandb
+                    - --run_name
+                    - lora_qwen05b
+                codePath: run.py
+                codePathLocal: run.py
+                cpu_count: 8
+                cpu_count_logical: 16
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "774207291392"
+                        used: "459727626240"
+                email: aymentlili131@gmail.com
+                executable: /home/aymen/anaconda3/bin/python
+                gpu: NVIDIA GeForce RTX 5060 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 4608
+                      memoryTotal: "17103323136"
+                      name: NVIDIA GeForce RTX 5060 Ti
+                      uuid: GPU-f1436c29-6a14-d84e-9eae-9bdecf707c8c
+                host: aymen-MS-7C95
+                memory:
+                    total: "33569062912"
+                os: Linux-6.8.0-94-generic-x86_64-with-glibc2.35
+                program: /home/aymen/Documents/GitHub/tinylora-demo/run.py
+                python: CPython 3.13.5
+                root: /home/aymen/Documents/GitHub/tinylora-demo
+                startedAt: "2026-02-20T04:28:19.872048Z"
+                writerId: rghyh5xvvm4uavadd5fphnaod7ri8ydk
+        m:
+            - "1": train/global_step
+              "6":
+                - 3
+              "7": []
+            - "2": '*'
+              "5": 1
+              "6":
+                - 1
+              "7": []
+        python_version: 3.13.5
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 49
+                - 51
+                - 53
+                - 71
+                - 98
+                - 100
+                - 105
+            "2":
+                - 1
+                - 5
+                - 11
+                - 49
+                - 51
+                - 53
+                - 71
+                - 98
+                - 100
+                - 105
+            "3":
+                - 7
+                - 13
+                - 19
+                - 62
+                - 66
+            "4": 3.13.5
+            "5": 0.25.0
+            "6": 5.2.0
+            "9":
+                "1": transformers_trainer
+            "12": 0.25.0
+            "13": linux-x86_64
+accelerator_config:
+    value:
+        dispatch_batches: null
+        even_batches: true
+        gradient_accumulation_kwargs: null
+        non_blocking: false
+        split_batches: false
+        use_seedable_sampler: true
+adam_beta1:
+    value: 0.9
+adam_beta2:
+    value: 0.999
+adam_epsilon:
+    value: 1e-08
+architectures:
+    value:
+        - Qwen2ForCausalLM
+attention_dropout:
+    value: 0
+auto_find_batch_size:
+    value: false
+average_tokens_across_devices:
+    value: true
+batch_eval_metrics:
+    value: false
+bf16:
+    value: false
+bf16_full_eval:
+    value: false
+bos_token_id:
+    value: 151643
+chunk_size_feed_forward:
+    value: 0
+data_seed:
+    value: null
+dataloader_drop_last:
+    value: false
+dataloader_num_workers:
+    value: 0
+dataloader_persistent_workers:
+    value: false
+dataloader_pin_memory:
+    value: true
+dataloader_prefetch_factor:
+    value: null
+ddp_backend:
+    value: null
+ddp_broadcast_buffers:
+    value: null
+ddp_bucket_cap_mb:
+    value: null
+ddp_find_unused_parameters:
+    value: null
+ddp_timeout:
+    value: 1800
+debug:
+    value: []
+deepspeed:
+    value: null
+disable_tqdm:
+    value: false
+do_eval:
+    value: false
+do_predict:
+    value: false
+do_train:
+    value: false
+dtype:
+    value: float16
+enable_jit_checkpoint:
+    value: false
+eos_token_id:
+    value: 151645
+eval_accumulation_steps:
+    value: null
+eval_delay:
+    value: 0
+eval_do_concat_batches:
+    value: true
+eval_on_start:
+    value: false
+eval_steps:
+    value: null
+eval_strategy:
+    value: "no"
+eval_use_gather_object:
+    value: false
+fp16:
+    value: true
+fp16_full_eval:
+    value: false
+fsdp:
+    value: []
+fsdp_config:
+    value:
+        min_num_params: 0
+        xla: false
+        xla_fsdp_grad_ckpt: false
+        xla_fsdp_v2: false
+full_determinism:
+    value: false
+gradient_accumulation_steps:
+    value: 8
+gradient_checkpointing:
+    value: false
+gradient_checkpointing_kwargs:
+    value: null
+greater_is_better:
+    value: null
+hidden_act:
+    value: silu
+hidden_size:
+    value: 896
+hub_always_push:
+    value: false
+hub_model_id:
+    value: null
+hub_private_repo:
+    value: null
+hub_revision:
+    value: null
+hub_strategy:
+    value: every_save
+hub_token:
+    value: <HUB_TOKEN>
+id2label:
+    value:
+        "0": LABEL_0
+        "1": LABEL_1
+ignore_data_skip:
+    value: false
+include_for_metrics:
+    value: []
+include_num_input_tokens_seen:
+    value: "no"
+initializer_range:
+    value: 0.02
+intermediate_size:
+    value: 4864
+is_encoder_decoder:
+    value: false
+label_names:
+    value: null
+label_smoothing_factor:
+    value: 0
+label2id:
+    value:
+        LABEL_0: 0
+        LABEL_1: 1
+layer_types:
+    value:
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+        - full_attention
+learning_rate:
+    value: 0.0002
+length_column_name:
+    value: length
+liger_kernel_config:
+    value: null
+load_best_model_at_end:
+    value: false
+local_rank:
+    value: -1
+log_level:
+    value: passive
+log_level_replica:
+    value: warning
+log_on_each_node:
+    value: true
+logging_dir:
+    value: null
+logging_first_step:
+    value: false
+logging_nan_inf_filter:
+    value: true
+logging_steps:
+    value: 10
+logging_strategy:
+    value: steps
+lr_scheduler_kwargs:
+    value: null
+lr_scheduler_type:
+    value: cosine
+max_grad_norm:
+    value: 1
+max_position_embeddings:
+    value: 32768
+max_steps:
+    value: 200
+max_window_layers:
+    value: 21
+metric_for_best_model:
+    value: null
+model/num_parameters:
+    value: 495114112
+model_type:
+    value: qwen2
+neftune_noise_alpha:
+    value: null
+num_attention_heads:
+    value: 14
+num_hidden_layers:
+    value: 24
+num_key_value_heads:
+    value: 2
+num_train_epochs:
+    value: 1
+optim:
+    value: adamw_torch
+optim_args:
+    value: null
+optim_target_modules:
+    value: null
+output_attentions:
+    value: false
+output_dir:
+    value: results/math_lora
+output_hidden_states:
+    value: false
+pad_token_id:
+    value: null
+parallelism_config:
+    value: null
+peft_config:
+    value:
+        default:
+            alora_invocation_tokens: null
+            arrow_config: null
+            auto_mapping: null
+            base_model_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
+            bias: none
+            corda_config: null
+            ensure_weight_tying: false
+            eva_config: null
+            exclude_modules: null
+            fan_in_fan_out: false
+            inference_mode: false
+            init_lora_weights: true
+            layer_replication: null
+            layers_pattern: null
+            layers_to_transform: null
+            lora_alpha: 16
+            lora_bias: false
+            lora_dropout: 0.05
+            megatron_config: null
+            megatron_core: megatron.core
+            modules_to_save: null
+            peft_type: LORA
+            peft_version: 0.18.1
+            qalora_group_size: 16
+            r: 8
+            revision: null
+            runtime_config:
+                ephemeral_gpu_offload: false
+            target_modules:
+                - q_proj
+                - o_proj
+                - k_proj
+                - v_proj
+            target_parameters: null
+            task_type: CAUSAL_LM
+            trainable_token_indices: null
+            use_dora: false
+            use_qalora: false
+            use_rslora: false
+per_device_eval_batch_size:
+    value: 1
+per_device_train_batch_size:
+    value: 1
+prediction_loss_only:
+    value: false
+problem_type:
+    value: null
+project:
+    value: huggingface
+push_to_hub:
+    value: false
+quantization_config:
+    value:
+        _load_in_4bit: true
+        _load_in_8bit: false
+        bnb_4bit_compute_dtype: float16
+        bnb_4bit_quant_storage: uint8
+        bnb_4bit_quant_type: nf4
+        bnb_4bit_use_double_quant: true
+        llm_int8_enable_fp32_cpu_offload: false
+        llm_int8_has_fp16_weight: false
+        llm_int8_skip_modules: null
+        llm_int8_threshold: 6
+        load_in_4bit: true
+        load_in_8bit: false
+        quant_method: BITS_AND_BYTES
+remove_unused_columns:
+    value: true
+report_to:
+    value:
+        - wandb
+restore_callback_states_from_checkpoint:
+    value: false
+resume_from_checkpoint:
+    value: null
+return_dict:
+    value: true
+rms_norm_eps:
+    value: 1e-06
+rope_parameters:
+    value:
+        rope_theta: 1e+06
+        rope_type: default
+run_name:
+    value: null
+save_on_each_node:
+    value: false
+save_only_model:
+    value: false
+save_steps:
+    value: 0
+save_strategy:
+    value: steps
+save_total_limit:
+    value: null
+seed:
+    value: 42
+skip_memory_metrics:
+    value: true
+sliding_window:
+    value: null
+tf32:
+    value: null
+tie_word_embeddings:
+    value: true
+torch_compile:
+    value: false
+torch_compile_backend:
+    value: null
+torch_compile_mode:
+    value: null
+torch_empty_cache_steps:
+    value: null
+trackio_space_id:
+    value: trackio
+train_sampling_strategy:
+    value: random
+transformers_version:
+    value: 5.2.0
+use_cache:
+    value: false
+use_cpu:
+    value: false
+use_liger_kernel:
+    value: false
+use_sliding_window:
+    value: false
+vocab_size:
+    value: 151936
+warmup_ratio:
+    value: null
+warmup_steps:
+    value: 20
+weight_decay:
+    value: 0

@@ -1,0 +1,51 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights: 100%|█| 290/290 [00:00<00:00, 457.54it/s, Materializing param=m
+100%|█████████████████████████████████████████| 200/200 [02:51<00:00,  1.16it/s]
+{'loss': '1.368', 'grad_norm': '0.2051', 'learning_rate': '9e-05', 'epoch': '0.04'}
+{'loss': '1.144', 'grad_norm': '0.2066', 'learning_rate': '0.00019', 'epoch': '0.08'}
+{'loss': '0.9089', 'grad_norm': '0.244', 'learning_rate': '0.0001988', 'epoch': '0.12'}
+{'loss': '0.7214', 'grad_norm': '0.1353', 'learning_rate': '0.0001946', 'epoch': '0.16'}
+{'loss': '0.6284', 'grad_norm': '0.1212', 'learning_rate': '0.0001875', 'epoch': '0.2'}
+{'loss': '0.5908', 'grad_norm': '0.1353', 'learning_rate': '0.0001777', 'epoch': '0.24'}
+{'loss': '0.5984', 'grad_norm': '0.1574', 'learning_rate': '0.0001656', 'epoch': '0.28'}
+{'loss': '0.5862', 'grad_norm': '0.1754', 'learning_rate': '0.0001515', 'epoch': '0.32'}
+{'loss': '0.5893', 'grad_norm': '0.1356', 'learning_rate': '0.0001358', 'epoch': '0.36'}
+{'loss': '0.5834', 'grad_norm': '0.1908', 'learning_rate': '0.0001191', 'epoch': '0.4'}
+{'loss': '0.6214', 'grad_norm': '0.1414', 'learning_rate': '0.0001017', 'epoch': '0.44'}
+{'loss': '0.5476', 'grad_norm': '0.1458', 'learning_rate': '8.436e-05', 'epoch': '0.48'}
+{'loss': '0.5856', 'grad_norm': '0.1538', 'learning_rate': '6.744e-05', 'epoch': '0.52'}
+{'loss': '0.5676', 'grad_norm': '0.1557', 'learning_rate': '5.152e-05', 'epoch': '0.56'}
+{'loss': '0.562', 'grad_norm': '0.1546', 'learning_rate': '3.707e-05', 'epoch': '0.6'}
+{'loss': '0.5646', 'grad_norm': '0.1779', 'learning_rate': '2.453e-05', 'epoch': '0.64'}
+{'loss': '0.5948', 'grad_norm': '0.1497', 'learning_rate': '1.428e-05', 'epoch': '0.68'}
+{'loss': '0.5476', 'grad_norm': '0.1763', 'learning_rate': '6.642e-06', 'epoch': '0.72'}
+{'loss': '0.5666', 'grad_norm': '0.1608', 'learning_rate': '1.837e-06', 'epoch': '0.76'}
+{'loss': '0.5506', 'grad_norm': '0.149', 'learning_rate': '1.523e-08', 'epoch': '0.8'}
+{'train_runtime': '171.9', 'train_samples_per_second': '9.309', 'train_steps_per_second': '1.164', 'train_loss': '0.6713', 'epoch': '0.8'}
+Traceback (most recent call last):
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 223, in <module>
+    main()
+    ~~~~^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 211, in main
+    run_one(task, args, results_rows)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 146, in run_one
+    scores = quick_eval(task, model, tok, eval_raw, n=args.eval_n)
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 45, in quick_eval
+    generations = generate_batch(model, tokenizer, prompts, max_new_tokens=96, temperature=0.0)
+  File "/home/aymen/anaconda3/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/aymen/Documents/GitHub/tinylora-demo/evals.py", line 30, in generate_batch
+    inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=1024)
+  File "/home/aymen/anaconda3/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 2456, in __call__
+    encodings = self._encode_plus(
+        text=text,
+    ...<4 lines>...
+        **all_kwargs,
+    )
+  File "/home/aymen/anaconda3/lib/python3.13/site-packages/transformers/tokenization_utils_tokenizers.py", line 804, in _encode_plus
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: text input must be of type `str` (single example), `list[str]` (batch or single pretokenized example) or `list[list[str]]` (batch of pretokenized examples) or `list[tuple[list[str], list[str]]]` (batch of pretokenized sequence pairs).

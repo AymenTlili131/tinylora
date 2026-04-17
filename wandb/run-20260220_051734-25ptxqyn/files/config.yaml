@@ -1,0 +1,86 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            kdaw7d3uoij685fwxs4n6eec1vq8au3i:
+                args:
+                    - --model
+                    - Qwen/Qwen2.5-0.5B-Instruct
+                    - --method
+                    - lora
+                    - --tasks
+                    - math,cls,instruct
+                    - --load_in_4bit
+                    - --bs
+                    - "1"
+                    - --grad_accum
+                    - "8"
+                    - --max_steps
+                    - "200"
+                    - --train_limit
+                    - "2000"
+                    - --eval_n
+                    - "200"
+                    - --wandb
+                    - --run_name
+                    - lora_qwen05b
+                codePath: run.py
+                codePathLocal: run.py
+                cpu_count: 8
+                cpu_count_logical: 16
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "774207291392"
+                        used: "458699091968"
+                email: aymentlili131@gmail.com
+                executable: /home/aymen/anaconda3/bin/python
+                gpu: NVIDIA GeForce RTX 5060 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 4608
+                      memoryTotal: "17103323136"
+                      name: NVIDIA GeForce RTX 5060 Ti
+                      uuid: GPU-f1436c29-6a14-d84e-9eae-9bdecf707c8c
+                host: aymen-MS-7C95
+                memory:
+                    total: "33569062912"
+                os: Linux-6.8.0-94-generic-x86_64-with-glibc2.35
+                program: /home/aymen/Documents/GitHub/tinylora-demo/run.py
+                python: CPython 3.13.5
+                root: /home/aymen/Documents/GitHub/tinylora-demo
+                startedAt: "2026-02-20T04:17:34.731172Z"
+                writerId: kdaw7d3uoij685fwxs4n6eec1vq8au3i
+        m: []
+        python_version: 3.13.5
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 49
+                - 51
+                - 53
+                - 71
+                - 98
+                - 100
+                - 105
+            "2":
+                - 1
+                - 5
+                - 11
+                - 49
+                - 51
+                - 53
+                - 71
+                - 98
+                - 100
+                - 105
+            "3":
+                - 13
+            "4": 3.13.5
+            "5": 0.25.0
+            "6": 5.2.0
+            "12": 0.25.0
+            "13": linux-x86_64

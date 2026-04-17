@@ -1,0 +1,27 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights: 100%|█| 290/290 [00:00<00:00, 594.09it/s, Materializing param=m
+generation_config.json: 100%|██████████████████| 242/242 [00:00<00:00, 1.09MB/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+README.md: 7.93kB [00:00, 14.0MB/s]
+main/train-00000-of-00001.parquet: 100%|████| 2.31M/2.31M [00:02<00:00, 906kB/s]
+main/test-00000-of-00001.parquet: 100%|███████| 419k/419k [00:00<00:00, 916kB/s]
+Generating train split: 100%|████| 7473/7473 [00:00<00:00, 805800.65 examples/s]
+Generating test split: 100%|█████| 1319/1319 [00:00<00:00, 514870.82 examples/s]
+Map: 100%|████████████████████████| 7473/7473 [00:00<00:00, 40621.50 examples/s]
+Map: 100%|████████████████████████| 1319/1319 [00:00<00:00, 23173.24 examples/s]
+Map: 100%|█████████████████████████| 2000/2000 [00:00<00:00, 3034.72 examples/s]
+Map: 100%|█████████████████████████| 1000/1000 [00:00<00:00, 2986.58 examples/s]
+Traceback (most recent call last):
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 224, in <module>
+    main()
+    ~~~~^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 212, in main
+    run_one(task, args, results_rows)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aymen/Documents/GitHub/tinylora-demo/run.py", line 106, in run_one
+    training_args = TrainingArguments(
+        output_dir=os.path.join(args.outdir, f"{task}_{args.method}"),
+    ...<15 lines>...
+        gradient_checkpointing=args.grad_ckpt,
+    )
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
